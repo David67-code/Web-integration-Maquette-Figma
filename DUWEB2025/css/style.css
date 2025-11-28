@@ -1,0 +1,447 @@
+:root {
+  --couleur_texte_principal: #1e3d59;
+  --couleur_fond_principal: #f5f0e1;
+  --couleur_titre: #dfa870;
+  --couleur_sous_titre: #d0602d;
+}
+body {
+  font-family: "Montserrat", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  width: 100%;
+}
+h1,
+h2,
+h3 {
+  font-family: "Rubik Dirt", system-ui;
+  text-transform: uppercase;
+  font-weight: 400;
+  font-style: normal;
+  color: var(--couleur_texte_principal);
+  line-height: clamp(2rem, 1.807vw + 1.422rem, 5rem);
+}
+p {
+  font-family: "EB Garamond", serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  font-size: clamp(1rem, 0.492vw + 0.902rem, 1.4rem);
+}
+.titre {
+  font-family: "Montserrat", sans-serif;
+  text-transform: uppercase;
+  font-weight: 600;
+  font-style: normal;
+  font-size: clamp(1.5rem, 1.11rem + 1.58vw, 3rem);
+}
+
+/*************************************
+ * 
+ *     MISE EN PAGE DU HEADER
+ * 
+ *************************************/
+
+header {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+.bandeau {
+  width: 100%;
+  height: 70px;
+  overflow: hidden;
+}
+.bandeau img {
+  width: 100%;
+  object-fit: cover;
+  transform: translateY(-50%);
+}
+.navigation {
+  display: flex;
+  flex-direction: row;
+  height: 130px;
+  background-color: var(--couleur_fond_principal);
+  justify-content: space-between;
+  align-items: flex-end;
+  padding: 0 14rem 4rem 14rem;
+}
+.menuprincipal ul {
+  display: flex;
+  margin: 0;
+  justify-content: flex-end;
+  gap: 1.6rem;
+}
+.menuprincipal li {
+  list-style: none;
+}
+.menuprincipal li a {
+  text-decoration: none;
+  text-transform: uppercase;
+  font-family: "Rubik Dirt", system-ui;
+  font-weight: 400;
+  font-style: normal;
+  font-size: clamp(1rem, 0.492vw + 0.902rem, 1.4rem);
+  color: var(--couleur_texte_principal);
+  transition: color 0.5s ease-in-out;
+}
+.menuprincipal li:hover a {
+  color: var(--couleur_sous_titre);
+}
+
+/**********************************************
+   Mise en place du slider pour 6 diapositives
+   
+/**********************************************/
+
+.slider {
+  position: relative;
+  width: 100%;
+  height: 45rem;
+  overflow: hidden;
+}
+.slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+}
+.slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.commentaire {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 40rem;
+  color: var(--couleur_fond_principal);
+  font-family: "EB Garamond", serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+  font-size: clamp(1rem, 2.462vw + 0.508rem, 3rem);
+  font-weight: 400;
+  z-index: 100;
+  text-shadow: 3px 3px 5px #000000;
+}
+.commentaire.gauche {
+  left: 12rem;
+}
+.commentaire.droite {
+  right: 12rem;
+}
+.logoslide {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  left: 12rem;
+  max-width: 18rem;
+  max-height: 17rem;
+  z-index: 100;
+}
+.slide.active {
+  animation-name: diaporama;
+}
+.slide:nth-child(1) {
+  animation: diaporama 30s linear infinite;
+}
+.slide:nth-child(2) {
+  animation: diaporama 30s linear infinite 5s;
+}
+.slide:nth-child(3) {
+  animation: diaporama 30s linear infinite 10s;
+}
+
+.slide:nth-child(4) {
+  animation: diaporama 30s linear infinite 15s;
+}
+
+.slide:nth-child(5) {
+  animation: diaporama 30s linear infinite 20s;
+}
+
+.slide:nth-child(6) {
+  animation: diaporama 30s linear infinite 25s;
+}
+
+/**************************
+*
+* Section de présentation 
+*
+***************************/
+
+.presentation {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+  margin: 1.5rem auto;
+}
+.presentation-texte,
+.presentation-img {
+  max-width: 30%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  align-content: center;
+}
+.presentation p {
+  width: 70%;
+  line-height: 3rem;
+  text-align: center;
+  color: var(--couleur_texte_principal);
+}
+.presentation-img:first-child {
+  order: 0;
+}
+.presentation-texte {
+  order: 1;
+}
+.presentation-img:last-of-type {
+  order: 2;
+}
+.presentation-texte span {
+  font-family: "Rubik Dirt", system-ui;
+  font-weight: 400;
+  font-style: normal;
+  font-size: clamp(1rem, 2.462vw + 0.508rem, 3rem);
+  text-transform: uppercase;
+  line-height: clamp(2rem, 4.923vw + 1.015rem, 6rem);
+}
+
+/****************************
+*
+*  Mise en place des asides
+*
+*****************************/
+
+/* Premier aside de la page d'accueil */
+
+.vendredi {
+  display: grid;
+  grid-template-columns: 3fr 1fr;
+  background-color: var(--couleur_fond_principal);
+  width: 100%;
+}
+.image_large img {
+  height: 100%;
+}
+
+/* Deuxième aside */
+
+.films {
+  display: grid;
+  grid-template-columns: 31% 1fr 31%;
+}
+.image_etroite {
+  display: flex;
+}
+.image_etroite img {
+  max-width: 100%;
+}
+.image_etroite.droite {
+  justify-content: flex-end;
+}
+.image_etroite.gauche {
+  align-content: flex-start;
+}
+.films {
+  background-color: var(--couleur_titre);
+}
+
+/* Mise en forme du texte */
+
+.description_centrale,
+.description_droite {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  text-align: left;
+  line-height: clamp(1rem, 2.462vw + 0.508rem, 4rem);
+  padding: 4rem;
+  color: var(--couleur_texte_principal);
+}
+
+.description_centrale h2,
+.description_droite h2 {
+  font-family: "Rubik Dirt", system-ui;
+  font-weight: 400;
+  font-style: normal;
+  text-transform: uppercase;
+}
+
+.description_droite h2 {
+  font-size: clamp(1.5rem, 2.769vw + 0.946rem, 3.75rem);
+  color: var(--couleur_sous_titre);
+}
+
+.description_centrale h2 {
+  font-size: clamp(1.5rem, 1.846vw + 1.131rem, 3rem);
+  color: var(--couleur_fond_principal);
+}
+
+.description_droite span,
+.description_centrale span {
+  font-family: "Rubik Dirt", system-ui;
+  font-weight: 400;
+  font-style: normal;
+  font-size: clamp(1.5rem, 1.846vw + 1.131rem, 3rem);
+  text-transform: uppercase;
+}
+
+.description_droite h2 span,
+.description_centrale h2 span {
+  font-family: "Rubik Dirt", system-ui;
+  font-weight: 400;
+  font-style: normal;
+  font-size: clamp(3rem, 1.928vw + 2.614rem, 5rem);
+  text-transform: uppercase;
+}
+
+/******************************
+*
+* Mise en forme du FOOTER
+*
+******************************/
+
+footer {
+  position: relative;
+  background-color: var(--couleur_texte_principal);
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  column-gap: 14rem;
+  align-items: center;
+  padding: 5rem 2rem 7rem 2rem;
+}
+
+.menusecondaire ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  height: 15rem;
+  justify-content: space-between;
+}
+
+.menusecondaire a {
+  text-decoration: none;
+  font-family: "Montserrat", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  text-transform: uppercase;
+  line-height: 1.75rem;
+  color: var(--couleur_fond_principal);
+  font-size: clamp(0.8rem, 0.554vw + 0.689rem, 1.25rem);
+}
+
+.menusecondaire li a:hover {
+  color: var(--couleur_titre);
+}
+
+.reseaux ul {
+  display: flex;
+  flex-direction: row;
+  list-style: none;
+  padding-left: 0 !important;
+}
+
+.reseaux li {
+  margin-right: 2.4rem;
+}
+
+.coordonnees {
+  display: flex;
+  flex-direction: column;
+  height: 21rem;
+  justify-content: space-between;
+}
+
+.adresse h2,
+.adresse p,
+.courriel a {
+  color: var(--couleur_fond_principal);
+  font-family: "Montserrat", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  font-size: clamp(1rem, 0.308vw + 0.938rem, 1.25rem);
+  text-decoration: none;
+}
+
+.adresse h2,
+.adresse p {
+  line-height: 0.5rem;
+}
+
+.adresse h2 {
+  font-weight: 700;
+}
+.adresse p {
+  text-transform: uppercase;
+  font-weight: 400;
+}
+
+.bandeau_pied {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 4.38rem;
+  width: 100%;
+  overflow: hidden;
+}
+
+.bandeau_pied img {
+  width: 100%;
+  object-fit: contain;
+  transform: translateY(-30%);
+}
+
+.bandeau_pied .copy {
+  position: absolute;
+  display: flex;
+  flex-direction: row;
+  align-items: baseline;
+  gap: 2rem;
+  bottom: 0.3rem;
+  right: 2rem;
+  z-index: 100;
+}
+
+.copy p,
+.copy a {
+  color: var(--couleur_fond_principal);
+  font-family: "Montserrat", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  font-size: small;
+}
+
+/* Ajout de l'animation du slider */
+
+@keyframes diaporama {
+  0% {
+    opacity: 0;
+  }
+  12.5% {
+    opacity: 1;
+  }
+  25% {
+    opacity: 1;
+  }
+  37.5% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
+  }
+}

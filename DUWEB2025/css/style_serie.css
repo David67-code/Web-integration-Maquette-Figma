@@ -1,0 +1,201 @@
+:root {
+  --couleur_texte_principal: #1e3d59;
+  --couleur_fond_principal: #f5f0e1;
+  --couleur_titre: #dfa870;
+  --couleur_sous_titre: #d0602d;
+}
+
+body {
+  font-family: "Montserrat", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  width: 100%;
+}
+
+/***********************************
+* Styles aside série du Vendredi   *
+***********************************/
+
+/* Présentation de la série */
+.aside {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 30px;
+  justify-content: space-between;
+  padding: 8rem;
+}
+
+.image_gauche img {
+  width: 90%;
+  height: auto;
+}
+
+.texte_droite {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  text-align: left;
+  padding-left: 5rem;
+}
+
+.titre {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.titre img {
+  width: 25%;
+  height: auto;
+  padding-right: 2rem;
+}
+
+.serie_titre {
+  text-transform: uppercase;
+  color: var(--couleur_titre);
+}
+
+.serie_casting {
+  text-transform: uppercase;
+}
+
+.grande_lettre {
+  font-size: 1.2em;
+}
+
+.deux_colonnes {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+}
+
+.colonne {
+  flex: 1;
+}
+
+.colonne p {
+  color: var(--couleur_texte_principal);
+  font-family: "Montserrat", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 600;
+  font-style: normal;
+  margin: 1px 0;
+}
+
+.indent {
+  text-indent: 4ch;
+}
+
+/* Bandeau des miniatures avec survol */
+
+.miniatures {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+
+.image_container {
+  position: relative;
+  width: 220px;
+  height: 220px;
+}
+
+.image_container img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: opacity 0.5s ease-in;
+  width: 100%;
+  height: 100%;
+}
+
+.img2 {
+  opacity: 0;
+}
+
+.image_container:hover .img2 {
+  opacity: 1;
+}
+
+.image_container:hover .img1 {
+  opacity: 0;
+}
+
+/* Styles des évaluations et commentaires */
+
+.evaluation {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: space-evenly;
+}
+
+.evaluation_gauche {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.evaluation_gauche .note {
+  width: 60%;
+  padding-bottom: 6rem;
+}
+
+.titre_resume_evaluation {
+  font-family: "Montserrat", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 600;
+  font-style: normal;
+  padding-left: 5.5rem;
+  font-size: 1.2rem;
+}
+
+.evaluation_droite p {
+  line-height: clamp(1.5rem, 0.602vw + 1.307rem, 2.5rem);
+}
+
+/***********************************
+*    Aside de la série Homeland    *
+***********************************/
+
+/* Afffichage du tire en décalé */
+
+.serie_vendredi {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 40px;
+}
+
+.serie_vendredi .left {
+  align-self: flex-start;
+}
+
+.serie_vendredi .right {
+  align-self: flex-end;
+}
+
+.serie_vendredi small {
+  font-size: 0.6em;
+  margin-right: 4px;
+}
+
+/* Conteneur pour les images superposées à droite */
+
+.conteneur_aside {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 25px;
+  padding: 3rem 0rem 3rem 4rem;
+}
+
+.conteneur_aside img {
+  width: 60%;
+  height: auto;
+}
